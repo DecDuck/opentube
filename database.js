@@ -5,7 +5,7 @@ var videoIndex = JSON.parse(fs.readFileSync('./database/videos.json'));
 var validLetters = "abcdefghijklmnopqrstuvwxyz1234567890";
 
 function generateID() {
-    return Math.random().toString(16).slice(8);
+    return Math.random().toString(64).slice(8);
 }
 
 function saveVideoIndex() {
