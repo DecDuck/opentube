@@ -1,4 +1,5 @@
 const fs = require('fs');
+const ffmpeg = require('ffmpeg')
 var videoIndex = JSON.parse(fs.readFileSync('./database/videos.json'));
 
 var validLetters = "abcdefghijklmnopqrstuvwxyz1234567890";
@@ -31,6 +32,16 @@ function createVideo(file, name, description){
         id: id
     };
     saveVideoIndex();
+    var process = new ffmpeg('./public/videos/'+id+'.mp4');
+    process.then(function(video){
+        video.fnExtractFrameToJPG('./public/thumbnails/',{
+            frame_rate: 1,
+            number: 0,
+            keep_aspect_ratio: true,
+            keep_pixel_aspect_ratio: true,
+            file_name:id+'.jpg'
+        });
+    })
     return '/video/'+id;
 }
 
@@ -38,7 +49,7 @@ function getRandomVideos(amount){
     var videoIds = [];
     var allVideoIds = Object.keys(videoIndex);
     for(let i = 0; i < amount; i++){
-        videoIds[i] = allVideoIds[(Math.random()*1000)%allVideoIds.length];
+        videoIds[i] = allVideoIds[Math.round(Math.random()*100)%allVideoIds.length];
     }
     return videoIds;
 }

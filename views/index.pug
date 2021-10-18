@@ -4,6 +4,5 @@ block content
   h1 OpenTube 
   .videoGrid 
     each id in ids
-      video(width='120')
-        source(src="/videos/"+id+'.mp4')
+      img(width='120', src="/thumbnails/"+id+'.jpg')
       p= database.getVideoMeta(id).name
