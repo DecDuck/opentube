@@ -1,7 +1,13 @@
 doctype html
 html
   head
-    title= title
+    title OpenTube
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    .nav.background
+        a(href="/").nav.title
+          h2 OpenTube
+        a(href="/upload").nav.item
+          h3 Upload
+    .content
+      block content

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    form(action="/upload", method="POST", encType='multipart/form-data')
+        p Name=
+            input(type="text" name="name")
+        p Description=
+            input(type="text" name="description")
+        p File=
+            input(type="file" name="video")
+        input(type="submit")
