@@ -4,7 +4,11 @@ block content
   h1 OpenTube
   .videoContainer
     .videoGrid 
-      each id in ids
-        a(href="/video/"+id)
-          img(width='300', src="/thumbnails/"+id+'_1.jpg')
-          p= database.getVideoMeta(id).name
+      if ids.length == 0
+        h2 There are no videos!
+        a(href='')
+      if ids.length > 0
+        each id in ids
+          a(href="/video/"+id)
+            img(width='300', src="/thumbnails/"+id+'_1.jpg')
+            p= database.getVideoMeta(id).name
