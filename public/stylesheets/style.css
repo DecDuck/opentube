@@ -38,6 +38,11 @@ body {
   text-decoration: none;
 }
 
+.videoGrid{
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px;
+}
+
 a,
 input {
   text-decoration: none;

@@ -34,9 +34,25 @@ function createVideo(file, name, description){
     return '/video/'+id;
 }
 
+function getRandomVideos(amount){
+    var videoIds = [];
+    var allVideoIds = Object.keys(videoIndex);
+    for(let i = 0; i < amount; i++){
+        videoIds[i] = allVideoIds[(Math.random()*1000)%allVideoIds.length];
+    }
+    return videoIds;
+}
+
 function getVideoMeta(id){
+    if(videoIndex[id] == null){
+        return {
+            name: "error",
+            description: "error"
+        }
+    }
     return videoIndex[id];
 }
 
 module.exports.createVideo = createVideo;
 module.exports.getVideoMeta = getVideoMeta;
+module.exports.getRandomVideos = getRandomVideos;

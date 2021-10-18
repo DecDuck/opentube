@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1 Welcome to OpenTube
-  p Open-source video sharing platform
+  h1 OpenTube 
+  .videoGrid 
+    each id in ids
+      video(width='120')
+        source(src="/videos/"+id+'.mp4')
+      p= database.getVideoMeta(id).name
