@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-    res.redirect(database.createVideo(req.files.video, req.body.name, req.body.description));
+    console.log(database.createVideo(req.files.video, req.body.name, req.body.description));
 });
 
 module.exports = router;

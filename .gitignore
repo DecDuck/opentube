@@ -61,3 +61,4 @@ typings/
 .next
 
 public/videos/*.mp4
+public/thumbnails/*.jpg

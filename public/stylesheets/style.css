@@ -39,11 +39,19 @@ body {
 }
 
 .videoGrid{
-  display: grid;
-  grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px;
+  display: inline-grid;
+  place-items: center;
+  grid-template-columns: auto auto auto auto;
+  margin: auto;
+  width: 100%;
 }
 
-a,
+.videoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 input {
   text-decoration: none;
   color: white;

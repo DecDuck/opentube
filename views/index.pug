@@ -1,8 +1,10 @@
 extends layout
 
 block content
-  h1 OpenTube 
-  .videoGrid 
-    each id in ids
-      img(width='120', src="/thumbnails/"+id+'.jpg')
-      p= database.getVideoMeta(id).name
+  h1 OpenTube
+  .videoContainer
+    .videoGrid 
+      each id in ids
+        a(href="/video/"+id)
+          img(width='300', src="/thumbnails/"+id+'_1.jpg')
+          p= database.getVideoMeta(id).name

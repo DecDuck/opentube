@@ -2,10 +2,9 @@ extends layout
 
 block content
     form(action="/upload", method="POST", encType='multipart/form-data')
-        p Name=
+        p Name: 
             input(type="text" name="name")
-        p Description=
+        p Description: 
             input(type="text" name="description")
-        p File=
-            input(type="file" name="video")
+        input(type="file" name="video" accept=".mp4")
         input(type="submit")
