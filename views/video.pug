@@ -1,7 +1,8 @@
 extends layout
 
 block content
-    video(controls='', width='1280', height='720')
-        source(src="/videos/"+id+'.mp4')
-    h4= name
-    p= description
+    div(style="text-align: left; margin-left: 4%")
+        video(controls='', width='80%')
+            source(src="/videos/"+id+'.mp4')
+        h1= name
+        p= description

@@ -3,7 +3,7 @@ var router = express.Router();
 var database = require("../database");
 
 router.get('/', function(req, res, next) {
-  var ids = database.getRandomVideos(4);
+  var ids = database.getRandomVideos(16);
   res.render('index', {ids: ids, database: database});
 });
 

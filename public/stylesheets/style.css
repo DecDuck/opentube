@@ -42,14 +42,32 @@ body {
   display: inline-grid;
   place-items: center;
   grid-template-columns: auto auto auto auto;
+  grid-row-gap: 30px;
   margin: auto;
   width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .videoGrid {
+    grid-template-columns: auto;
+  }
+  .video {
+    width: 75vw;
+  }
 }
 
 .videoContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.video {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px 10px 10px 10px;
+  border-radius: 6px;
+  min-width: 20vw;
+  max-width: 25vw;
 }
 
 input {
@@ -61,3 +79,9 @@ input {
 }
 
 tr { height: 40px; }
+
+.videoText{
+  text-decoration: none;
+  color: black;
+  font-size: large;
+}

@@ -8,7 +8,7 @@ var videoIndex = JSON.parse(fs.readFileSync('./database/videos.json'));
 var validLetters = "abcdefghijklmnopqrstuvwxyz1234567890";
 
 function generateID() {
-    return Math.random().toString(64).slice(8);
+    return Math.random().toString(16).slice(8);
 }
 
 function saveVideoIndex() {
@@ -67,18 +67,22 @@ function getRandomVideos(amount) {
     if(allVideoIds.length == 0){
         return [];
     }
-    for (let i = 0; i < amount; i++) {
-        videoIds[i] = allVideoIds[Math.round(Math.random() * 100) % allVideoIds.length];
+    if(allVideoIds.length > amount){
+        for (let i = 0; i < amount; i++) {
+            videoIds[i] = allVideoIds[Math.round(Math.random() * 100) % allVideoIds.length];
+        }
+    }else{
+        videoIds = allVideoIds;
+        for(let i = allVideoIds.length; i < amount; i++){
+            videoIds[i] = null;
+        }
     }
     return videoIds;
 }
 
 function getVideoMeta(id) {
     if (videoIndex[id] == null) {
-        return {
-            name: "error",
-            description: "error"
-        }
+        return null;
     }
     return videoIndex[id];
 }

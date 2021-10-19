@@ -4,11 +4,12 @@ block content
   h1 OpenTube
   if ids.length == 0
     h2 There are no videos!
-    a(href='')
+    a(href='/upload') Upload some
   .videoContainer
     .videoGrid 
       if ids.length > 0
         each id in ids
-          a(href="/video/"+id)
-            img(width='300', src="/thumbnails/"+id+'_1.jpg')
-            p= database.getVideoMeta(id).name
+          if database.getVideoMeta(id) != null
+            a(href="/video/"+id).video
+              img(height='200', src="/thumbnails/"+id+'_1.jpg', style="border: 3px solid #000000;")
+              p.videoText= database.getVideoMeta(id).name
