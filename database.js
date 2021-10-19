@@ -61,6 +61,9 @@ function createVideo(file, name, description) {
 function getRandomVideos(amount) {
     var videoIds = [];
     var allVideoIds = Object.keys(videoIndex);
+    if(allVideoIds.length == 0){
+        return [];
+    }
     for (let i = 0; i < amount; i++) {
         videoIds[i] = allVideoIds[Math.round(Math.random() * 100) % allVideoIds.length];
     }
