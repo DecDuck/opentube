@@ -62,3 +62,4 @@ typings/
 
 public/videos/*.mp4
 public/thumbnails/*.jpg
+database/videos.json

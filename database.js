@@ -1,5 +1,8 @@
 const fs = require('fs');
 const ffmpeg = require('ffmpeg')
+if(!fs.existsSync('./database/videos.json')){
+    fs.writeFileSync('./database/videos.json', "{}");
+}
 var videoIndex = JSON.parse(fs.readFileSync('./database/videos.json'));
 
 var validLetters = "abcdefghijklmnopqrstuvwxyz1234567890";
